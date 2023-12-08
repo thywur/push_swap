@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   turk.c                                             :+:      :+:    :+:   */
+/*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:20:32 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/08 14:15:46 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:20:21 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ t_stack	*directly_bigger(int to_place, t_stack **stack)
 	}
 	return (NULL);
 }
+
 int	get_r_cost(t_stack *pos)
 {
 	int	cost;
@@ -139,85 +140,158 @@ int	get_cost(t_stack *a, t_stack *b)
 	rrarb = get_rr_cost(a) + get_r_cost(b);
 	return (ft_min(4, rarb, rrarrb, rarrb, rrarb));
 }
-// int	get_command(t_stack *a, t_stack *b)
+
+// int	get_command(t_stack *st)
 // {
-// 	int	rarb;
-// 	int	rrarrb;
-// 	int	rarrb;
-// 	int	rrarb;
-
-// 	rarb = ft_max(2, get_r_cost(a), get_r_cost(b));
-// 	rrarrb = ft_max(2, get_rr_cost(a), get_rr_cost(b));
-// 	rarrb = get_r_cost(a) + get_rr_cost(b);
-// 	rrarb = get_rr_cost(a) + get_r_cost(b);
-// 	if (ft_min(4, rarb, rrarrb, rarrb, rrarb) == rarb)
+// 	if (ft_min(2, get_r_cost(st), get_rr_cost(st)) == get_r_cost(st))
 // 		return (1);
-// 	else if (ft_min(4, rarb, rrarrb, rarrb, rrarb) == rrarrb)
-// 		return (2);
-// 	else if (ft_min(4, rarb, rrarrb, rarrb, rrarb) == rarrb)
-// 		return (3);
-// 	else if (ft_min(4, rarb, rrarrb, rarrb, rrarb) == rrarb)
-// 		return (4);
-// 	return (-1);
-// }
-
-int	get_command(t_stack *st)
-{
-	if (ft_min(2, get_r_cost(st), get_rr_cost(st)) == get_r_cost(st))
-		return (1);
-	else if (ft_min(2, get_r_cost(st), get_rr_cost(st)) == get_rr_cost(st))
-		return (2);
-	return (-1);
-}
-
-// int	get_command_b(t_stack *b)
-// {
-// 	if (ft_min(2, get_r_cost(b), get_rr_cost(b)) == get_r_cost(b))
-// 		return (1);
-// 	else if (ft_min(2, get_r_cost(b), get_rr_cost(b)) == get_rr_cost(b))
+// 	else if (ft_min(2, get_r_cost(st), get_rr_cost(st)) == get_rr_cost(st))
 // 		return (2);
 // 	return (-1);
 // }
 
-void	push_a_to_top(t_stack **stack, t_stack *to_push)
+int	get_command(t_stack *a, t_stack *b)
 {
-	int	command;
+	// int	rarb;
+	// int	rrarrb;
+	// int	rarrb;
+	// int	rrarb;
+	int cost;
+	int command;
 
-	command = get_command(to_push);
-	if (command == 1)
+	cost = ft_max(2, get_r_cost(a), get_r_cost(b));
+	command = 1;
+	if (ft_max(2, get_rr_cost(a), get_rr_cost(b)) < cost)
 	{
-		while(to_push->prev)
-			ra(stack);
+		cost = ft_max(2, get_rr_cost(a), get_rr_cost(b));
+		command = 3;
 	}
-	else if (command == 2)
+	if ((get_r_cost(a) + get_rr_cost(b)) < cost)
 	{
-		while(to_push->prev)
-			rra(stack);
+		cost = get_r_cost(a) + get_rr_cost(b);
+		command = 2;
 	}
-	if (command == -1)
-		exit(-1);
+	if ((get_rr_cost(a) + get_r_cost(b)) < cost)
+	{
+		cost = get_rr_cost(a) + get_r_cost(b);
+		command = 4;
+	}
+	return (command);
+	// if (get_r_cost(a) <= get_cost(a, b))
+	// {
+	// 	if (get_r_cost(b) <= get_cost(a, b))
+	// 		return (1);
+	// 	else
+	// 		return (2);
+	// }
+	// else
+	// {
+	// 	if (get_rr_cost(b) <= get_cost(a, b))
+	// 		return (3);
+	// 	else
+	// 		return (4);
+	// }
+	// return (-1);
+
+	// rarb = ft_max(2, get_r_cost(a), get_r_cost(b));
+	// rrarrb = ft_max(2, get_rr_cost(a), get_rr_cost(b));
+	// rarrb = get_r_cost(a) + get_rr_cost(b);
+	// rrarb = get_rr_cost(a) + get_r_cost(b);
+	// return (ft_min(4, rarb, rrarrb, rarrb, rrarb));
 }
 
-void	push_b_to_top(t_stack **b, t_stack *to_push)
+// void	push_a_to_top(t_stack **a, t_stack *to_push)
+// {
+// 	int	command;
+
+// 	command = get_command(to_push);
+// 	if (command == 1)
+// 	{
+// 		while (to_push->prev)
+// 			ra(a);
+// 	}
+// 	else if (command == 2)
+// 	{
+// 		while (to_push->prev)
+// 			rra(a);
+// 	}
+// 	if (command == -1)
+// 		exit(-1);
+// }
+
+// void	push_b_to_top(t_stack **b, t_stack *to_push)
+// {
+// 	int	command;
+
+// 	command = get_command(to_push);
+// 	if (command == 1)
+// 	{
+// 		while (to_push->prev)
+// 			rb(b);
+// 	}
+// 	else if (command == 2)
+// 	{
+// 		while (to_push->prev)
+// 			rrb(b);
+// 	}
+// 	if (command == -1)
+// 		exit(-1);
+// }
+
+void	push_to_top(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
 {
 	int	command;
 
-	command = get_command(to_push);
+	command = get_command(a_pos, b_pos);
 	if (command == 1)
 	{
-		while(to_push->prev)
+		while (a_pos->prev && b_pos->prev)
+			rr(a, b);
+		while (a_pos->prev)
+			ra(a);
+		while (b_pos->prev)
 			rb(b);
 	}
 	else if (command == 2)
 	{
-		while(to_push->prev)
+		while (a_pos->prev)
+			ra(a);
+		while (b_pos->prev)
+		{
+			// printf("b_pos should be: %d\n", b_pos->val);
+			// t_stack *head;
+			// head = *b;
+			// while (head)
+			// {
+			// 	if (head->prev)
+			// 		printf("prev content: %d\n", head->prev->val);
+			// 	printf("content: %d\n", head->val);
+			// 	head = head->next;
+			// }
+			rrb(b);
+		}
+	}
+	else if (command == 3)
+	{
+		while (a_pos->prev && b_pos->prev)
+			rrr(a, b);
+		while (a_pos->prev)
+			rra(a);
+		while (b_pos->prev)
 			rrb(b);
 	}
-	if (command == -1)
+	else if (command == 4)
+	{
+		while (a_pos->prev)
+			rra(a);
+		while (b_pos->prev)
+			rb(b);
+	}
+	else if (command == -1)
 		exit(-1);
 }
 
-t_stack *find_cheapest(t_stack **a, t_stack **b)
+t_stack	*find_cheapest(t_stack **a, t_stack **b)
 {
 	t_stack	*pos;
 	int		pos_cost;
@@ -257,7 +331,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-void sort_turk(t_stack **a, t_stack **b)
+void	turk_sort(t_stack **a, t_stack **b)
 {
 	t_stack *to_push;
 	t_stack *push_to;
@@ -270,17 +344,24 @@ void sort_turk(t_stack **a, t_stack **b)
 	{
 		to_push = find_cheapest(a, b);
 		push_to = directly_smaller(to_push->val, b);
-		push_b_to_top(b, push_to);
-		push_a_to_top(a, to_push);
+		// push_b_to_top(b, push_to);
+		// push_a_to_top(a, to_push);
+		push_to_top(a, b, to_push, push_to);
 		pb(a, b);
 	}
 	sort_three(a);
 	while (*b)
 	{
 		next_val = directly_bigger((*b)->val, a);
+		printf("next val %d\n", next_val->val);
+		printf("*a == %d\n", (*a)->val);
 		if (*a == next_val)
 			pa(a, b);
 		else
-			push_a_to_top(a, next_val);
+		{
+			push_to_top(b, a, *a, next_val);
+			pb(b, a);
+		}
+			// push_a_to_top(a, next_val);
 	}
 }

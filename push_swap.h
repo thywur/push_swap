@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:59:35 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/06 18:31:42 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:59:34 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <unistd.h>
 
 #include <stdio.h>
 
@@ -51,7 +52,8 @@ void	sort_three(t_stack **a);
 int		ft_lstsize(t_stack *lst);
 int		ft_max(int n, ...);
 int		ft_min(int n, ...);
-void 	sort_turk(t_stack **a, t_stack **b);
+void 	turk_sort(t_stack **a, t_stack **b);
+int		ft_isdigit(int c);
 
 t_stack *find_cheapest(t_stack **a, t_stack **b);
 

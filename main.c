@@ -6,12 +6,28 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:34:33 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/06 18:32:17 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:14:48 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+// int	args_ok(int argc, char **argv)
+// {
+// 	int	i;
+// 	int	j;
+
+// 	if (argc < 2)
+// 		return (-1);
+// 	i = 0;
+// 	j = 0;
+// 	while (argv[i])
+// 	{
+// 		if (!ft_isdigit())
+// 		i++;
+// 	}
+// }
 
 int	main(int argc, char **argv)
 {
@@ -26,35 +42,29 @@ int	main(int argc, char **argv)
 	while (i < argc)
 	{
 		ft_lstadd_back(&a, ft_lstnew(ft_atoi(argv[i])));
-		// printf("%d ", ft_atoi(argv[i]));
 		i++;
 	}
 
-	// pb(&a, &b);
-	// pb(&a, &b);
-//	sort_three(&a);
-	// sa(&a);
-	// rra(&a);
-	print = a;
+	// print = a;
 
-	while (print)
-	{
-		printf("%d ", print->val);
-		print = print->next;
-	}
+	// while (print)
+	// {
+	// 	printf("%d ", print->val);
+	// 	print = print->next;
+	// }
 
-	printf("\n-------\n");
+	// printf("\n-------\n");
 
-	print = b;
+	// print = b;
 
-	while (print)
-	{
-		printf("%d ", print->val);
-		print = print->next;
-	}
-	printf("\n");
+	// while (print)
+	// {
+	// 	printf("%d ", print->val);
+	// 	print = print->next;
+	// }
+	// printf("\n");
 
-	sort_turk(&a, &b);
+	turk_sort(&a, &b);
 
 	print = a;
 

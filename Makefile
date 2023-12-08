@@ -6,7 +6,7 @@
 #    By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/05 17:50:42 by alermolo          #+#    #+#              #
-#    Updated: 2023/12/06 16:40:56 by alermolo         ###   ########.fr        #
+#    Updated: 2023/12/08 15:55:10 by alermolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = 		commands.c	\
 			rotate.c	\
 			sort_three.c	\
 			swap.c		\
-			turk.c		\
+			turk_sort.c		\
 
 OBJS =		$(SRCS:.c=.o)
 

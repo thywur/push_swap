@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:46:20 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/02 17:05:26 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:40:03 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,25 @@ void	ft_push(t_stack **src, t_stack **dest)
 {
 	t_stack	*to_push;
 
-	to_push = *src;
-	if (!src || !dest)
+	if (!(*src))
 		return ;
-	if (to_push)
+	to_push = *src;
+	if (!(*dest))
 	{
+		*src = to_push->next;
+		(*src)->prev = NULL;
+		to_push->next = NULL;
+		*dest = to_push;
+	}
+	else if (to_push)
+	{
+		*src = to_push->next;
+		if (*src)
+			(*src)->prev = NULL;
 		to_push->next = *dest;
 		to_push->prev = NULL;
+		(*dest)->prev = to_push;
 		*dest = to_push;
-		*src = (*src)->next;
-		(*src)->prev = NULL;
 	}
 }
 

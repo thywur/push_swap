@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:59:35 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/02 17:28:10 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:31:42 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <limits.h>
+# include <stdarg.h>
+
+#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -43,5 +47,12 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstclear(t_stack **stack);
 int		ft_atoi(const char *nptr);
+void	sort_three(t_stack **a);
+int		ft_lstsize(t_stack *lst);
+int		ft_max(int n, ...);
+int		ft_min(int n, ...);
+void 	sort_turk(t_stack **a, t_stack **b);
+
+t_stack *find_cheapest(t_stack **a, t_stack **b);
 
 #endif

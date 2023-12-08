@@ -73,6 +73,19 @@ void	ft_lstclear(t_stack **stack)
 	*stack = NULL;
 }
 
+int	ft_lstsize(t_stack *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
+}
+
 int	ft_atoi(const char *nptr)
 {
 	int	i;
@@ -96,4 +109,46 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (res * sign);
+}
+
+int	ft_max(int n, ...)
+{
+	va_list	val;
+	int		i;
+	int		max;
+	int		curr;
+
+	max = INT_MIN;
+	i = 0;
+	va_start(val, n);
+	while (i < n)
+	{
+		curr = va_arg(val, int);
+		if (curr > max)
+			max = curr;
+		i++;
+	}
+	va_end(val);
+	return (max);
+}
+
+int	ft_min(int n, ...)
+{
+	va_list	val;
+	int		i;
+	int		min;
+	int		curr;
+
+	min = INT_MAX;
+	i = 0;
+	va_start(val, n);
+	while (i < n)
+	{
+		curr = va_arg(val, int);
+		if (curr < min)
+			min = curr;
+		i++;
+	}
+	va_end(val);
+	return (min);
 }

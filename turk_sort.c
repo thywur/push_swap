@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:20:32 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/08 18:20:21 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:08:39 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,22 @@ int	smallest(t_stack **stack)
 		pos = pos->next;
 	}
 	return (min);
+}
+
+t_stack	*find_smallest(t_stack **a)
+{
+	t_stack	*curr;
+	int		min;
+
+	curr = *a;
+	min = smallest(a);
+	while (curr->next)
+	{
+		if (curr->val == min)
+			return (curr);
+		curr = curr->next;
+	}
+	return (curr);
 }
 
 t_stack	*directly_smaller(int to_place, t_stack **stack)
@@ -200,24 +216,30 @@ int	get_command(t_stack *a, t_stack *b)
 	// return (ft_min(4, rarb, rrarrb, rarrb, rrarb));
 }
 
-// void	push_a_to_top(t_stack **a, t_stack *to_push)
-// {
-// 	int	command;
+void	push_a_to_top(t_stack **a, t_stack *next_big)
+{
+	int	moves;
+	int	r_moves;
 
-// 	command = get_command(to_push);
-// 	if (command == 1)
-// 	{
-// 		while (to_push->prev)
-// 			ra(a);
-// 	}
-// 	else if (command == 2)
-// 	{
-// 		while (to_push->prev)
-// 			rra(a);
-// 	}
-// 	if (command == -1)
-// 		exit(-1);
-// }
+	moves = get_r_cost(next_big);
+	r_moves = get_rr_cost(next_big);
+	if (moves < r_moves)
+	{
+		while (moves)
+		{
+			ra(a);
+			moves--;
+		}
+	}
+	else
+	{
+		while (r_moves)
+		{
+			rra(a);
+			r_moves--;
+		}
+	}
+}
 
 // void	push_b_to_top(t_stack **b, t_stack *to_push)
 // {
@@ -353,15 +375,22 @@ void	turk_sort(t_stack **a, t_stack **b)
 	while (*b)
 	{
 		next_val = directly_bigger((*b)->val, a);
-		printf("next val %d\n", next_val->val);
-		printf("*a == %d\n", (*a)->val);
-		if (*a == next_val)
-			pa(a, b);
-		else
-		{
-			push_to_top(b, a, *a, next_val);
-			pb(b, a);
-		}
-			// push_a_to_top(a, next_val);
+		// printf("next val %d\n", next_val->val);
+		push_a_to_top(a, next_val);
+		pa(a, b);
+		// printf("*a == %d\n", (*a)->val);
+
+		// if (get_r_cost(next_val) > get_rr_cost(next_val))
+		// 	rra(a);
+		// else
+		// 	ra(a);
+		// if (*a == next_val)
+		// 	pa(a, b);
+		// else
+		// {
+		// 	push_to_top(b, a, *b, next_val);
+		// 	pa(a, b);
+		// }
 	}
+	push_a_to_top(a, find_smallest(a));
 }

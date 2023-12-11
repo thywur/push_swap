@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:34:33 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/08 17:14:48 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/11 14:25:29 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	int	i;
 	t_stack	*a;
 	t_stack	*b;
-	t_stack *print;
+	// t_stack *print;
 
 	i = 1;
 	a = NULL;
@@ -66,24 +66,24 @@ int	main(int argc, char **argv)
 
 	turk_sort(&a, &b);
 
-	print = a;
+	// print = a;
 
-	while (print)
-	{
-		printf("%d ", print->val);
-		print = print->next;
-	}
+	// while (print)
+	// {
+	// 	printf("%d ", print->val);
+	// 	print = print->next;
+	// }
 
-	printf("\n-------\n");
+	// printf("\n-------\n");
 
-	print = b;
+	// print = b;
 
-	while (print)
-	{
-		printf("%d ", print->val);
-		print = print->next;
-	}
-	printf("\n");
+	// while (print)
+	// {
+	// 	printf("%d ", print->val);
+	// 	print = print->next;
+	// }
+	// printf("\n");
 
 	ft_lstclear(&a);
 	ft_lstclear(&b);

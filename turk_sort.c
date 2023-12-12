@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:20:32 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:49:18 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:02:09 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	turk_sort(t_stack **a, t_stack **b)
 		push_to_top(a, b, to_push, push_to);
 		pb(a, b);
 	}
-	sort_three(a);
+	sort_three(a, b);
 	while (*b)
 	{
 		push_to = directly_bigger((*b)->val, a);
-		push_a_to_top(a, push_to);
+		push_a_to_top(a, b, push_to);
 		pa(a, b);
 	}
-	push_a_to_top(a, find_smallest(a));
+	push_a_to_top(a, b, find_smallest(a));
 }

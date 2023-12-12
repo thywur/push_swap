@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:50:53 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:48:45 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:59:49 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static void	rarb(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
 	while (a_pos->prev && b_pos->prev)
 		rr(a, b);
 	while (a_pos->prev)
-		ra(a);
+		ra(a, b);
 	while (b_pos->prev)
-		rb(b);
+		rb(a, b);
 }
 
 static void	rarrb(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
 {
 	while (a_pos->prev)
-		ra(a);
+		ra(a, b);
 	while (b_pos->prev)
-		rrb(b);
+		rrb(a, b);
 }
 
 static void	rrarrb(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
@@ -35,17 +35,17 @@ static void	rrarrb(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
 	while (a_pos->prev && b_pos->prev)
 		rrr(a, b);
 	while (a_pos->prev)
-		rra(a);
+		rra(a, b);
 	while (b_pos->prev)
-		rrb(b);
+		rrb(a, b);
 }
 
 static void	rrarb(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
 {
 	while (a_pos->prev)
-		rra(a);
+		rra(a, b);
 	while (b_pos->prev)
-		rb(b);
+		rb(a, b);
 }
 
 void	push_to_top(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)

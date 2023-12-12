@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:56:10 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 16:16:37 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:51:18 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	free_and_exit(t_stack **a, t_stack **b)
 {
 	ft_lstclear(a);
 	ft_lstclear(b);
-	write(1, "Error\n", 6);
+	if (write(1, "Error\n", 6) == -1)
+		exit(-1);
 	exit(-1);
 }
 

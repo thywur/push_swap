@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:59:35 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:45:52 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:01:52 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ void	ft_swap(t_stack **stack);
 void	ft_push(t_stack **src, t_stack **dest);
 void	ft_rotate(t_stack **stack);
 void	ft_revrotate(t_stack **stack);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
+void	sa(t_stack **a, t_stack **b);
+void	sb(t_stack **a, t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
+void	ra(t_stack **a, t_stack **b);
+void	rb(t_stack **a, t_stack **b);
 void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
+void	rra(t_stack **a, t_stack **b);
+void	rrb(t_stack **a, t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 t_stack	*ft_lstnew(int val);
 t_stack	*ft_lstlast(t_stack *lst);
@@ -46,7 +46,7 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstclear(t_stack **stack);
 long	ft_atoi(const char *nptr);
-void	sort_three(t_stack **a);
+void	sort_three(t_stack **a, t_stack **b);
 int		ft_lstsize(t_stack *lst);
 int		ft_max(int n, ...);
 int		ft_min(int n, ...);
@@ -64,7 +64,7 @@ size_t	ft_strlen(const char *s);
 int		is_sorted(t_stack *stack);
 int		get_command(t_stack *a, t_stack *b);
 void	push_to_top(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos);
-void	push_a_to_top(t_stack **a, t_stack *pos);
+void	push_a_to_top(t_stack **a, t_stack **b, t_stack *pos);
 t_stack	*find_smallest(t_stack **a);
 t_stack	*directly_smaller(int to_place, t_stack **stack);
 t_stack	*directly_bigger(int to_place, t_stack **stack);

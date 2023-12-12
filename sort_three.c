@@ -6,13 +6,13 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:43:23 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/05 17:48:56 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:01:43 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack **a)
+void	sort_three(t_stack **a, t_stack **b)
 {
 	t_stack	*p;
 
@@ -21,20 +21,20 @@ void	sort_three(t_stack **a)
 	{
 		if (p->next->val > p->next->next->val)
 		{
-			sa(a);
-			rra(a);
+			sa(a, b);
+			rra(a, b);
 		}
 		else if (p->next->val < p->next->next->val)
-			ra(a);
+			ra(a, b);
 	}
 	else if (p->val > p->next->val && p->val < p->next->next->val)
-		sa(a);
+		sa(a, b);
 	else if (p->val < p->next->val && p->val > p->next->next->val)
-		rra(a);
+		rra(a, b);
 	else if (p->val < p->next->val && p->next->val > p->next->next->val)
 	{
-		sa(a);
-		ra(a);
+		sa(a, b);
+		ra(a, b);
 	}
 	else
 		return ;

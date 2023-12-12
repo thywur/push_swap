@@ -6,13 +6,13 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:45:11 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:45:22 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:00:18 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a_to_top(t_stack **a, t_stack *pos)
+void	push_a_to_top(t_stack **a, t_stack **b, t_stack *pos)
 {
 	int	r_cost;
 	int	rr_cost;
@@ -23,7 +23,7 @@ void	push_a_to_top(t_stack **a, t_stack *pos)
 	{
 		while (r_cost)
 		{
-			ra(a);
+			ra(a, b);
 			r_cost--;
 		}
 	}
@@ -31,7 +31,7 @@ void	push_a_to_top(t_stack **a, t_stack *pos)
 	{
 		while (rr_cost)
 		{
-			rra(a);
+			rra(a, b);
 			rr_cost--;
 		}
 	}

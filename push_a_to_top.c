@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   push_a_to_top.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/02 15:30:33 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:48:58 by alermolo         ###   ########.fr       */
+/*   Created: 2023/12/12 17:45:11 by alermolo          #+#    #+#             */
+/*   Updated: 2023/12/12 17:45:22 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack **a)
+void	push_a_to_top(t_stack **a, t_stack *pos)
 {
-	ft_revrotate(a);
-	write(1, "rra\n", 4);
-}
+	int	r_cost;
+	int	rr_cost;
 
-void	rrb(t_stack **b)
-{
-	ft_revrotate(b);
-	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_stack **a, t_stack **b)
-{
-	ft_revrotate(a);
-	ft_revrotate(b);
-	write(1, "rrr\n", 4);
+	r_cost = get_r_cost(pos);
+	rr_cost = get_rr_cost(pos);
+	if (r_cost < rr_cost)
+	{
+		while (r_cost)
+		{
+			ra(a);
+			r_cost--;
+		}
+	}
+	else
+	{
+		while (rr_cost)
+		{
+			rra(a);
+			rr_cost--;
+		}
+	}
 }

@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_lst2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/02 15:30:33 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:48:58 by alermolo         ###   ########.fr       */
+/*   Created: 2023/12/12 17:37:30 by alermolo          #+#    #+#             */
+/*   Updated: 2023/12/12 17:48:05 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack **a)
+void	ft_lstclear(t_stack **stack)
 {
-	ft_revrotate(a);
-	write(1, "rra\n", 4);
+	t_stack	*temp;
+
+	if (stack)
+	{
+		while (*stack)
+		{
+			temp = *stack;
+			*stack = ((*stack)->next);
+			free(temp);
+		}
+		*stack = NULL;
+	}
 }
 
-void	rrb(t_stack **b)
+int	ft_lstsize(t_stack *lst)
 {
-	ft_revrotate(b);
-	write(1, "rrb\n", 4);
-}
+	int	size;
 
-void	rrr(t_stack **a, t_stack **b)
-{
-	ft_revrotate(a);
-	ft_revrotate(b);
-	write(1, "rrr\n", 4);
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }

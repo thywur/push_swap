@@ -6,14 +6,13 @@
 #    By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/05 17:50:42 by alermolo          #+#    #+#              #
-#    Updated: 2023/12/12 16:10:57 by alermolo         ###   ########.fr        #
+#    Updated: 2023/12/12 17:46:54 by alermolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 		push_swap
 
 SRCS = 		commands.c	\
-			libft.c		\
 			main.c		\
 			push.c		\
 			reverse_rotate.c	\
@@ -25,6 +24,17 @@ SRCS = 		commands.c	\
 			ft_split.c	\
 			ft_strlen.c	\
 			parse_args.c	\
+			push_to_top.c	\
+			push_a_to_top.c	\
+			biggest_smallest.c	\
+			get_cost.c	\
+			find_cheapest.c	\
+			ft_lst.c	\
+			ft_lst2.c	\
+			ft_isdigit.c	\
+			ft_min_max.c	\
+			ft_atoi.c	\
+			get_command.c	\
 
 OBJS =		$(SRCS:.c=.o)
 

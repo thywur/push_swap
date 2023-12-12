@@ -1,32 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/02 15:30:33 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:48:58 by alermolo         ###   ########.fr       */
+/*   Created: 2023/12/12 17:39:37 by alermolo          #+#    #+#             */
+/*   Updated: 2023/12/12 17:39:45 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack **a)
+int	ft_isdigit(int c)
 {
-	ft_revrotate(a);
-	write(1, "rra\n", 4);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 
-void	rrb(t_stack **b)
+int	ft_strisdigit(char *s)
 {
-	ft_revrotate(b);
-	write(1, "rrb\n", 4);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+int	ft_digit_and_spc(char *s)
 {
-	ft_revrotate(a);
-	ft_revrotate(b);
-	write(1, "rrr\n", 4);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]) && s[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
 }

@@ -6,13 +6,13 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:24:01 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 16:08:54 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:38:42 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	if (c == ' ' || (c >= 9 && c <= 13))
 		return (1);

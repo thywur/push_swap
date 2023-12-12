@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:20:32 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/11 15:08:39 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:41:39 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -313,6 +313,59 @@ void	push_to_top(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
 		exit(-1);
 }
 
+void	push_to_top_b(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
+{
+	int	command;
+
+	command = get_command(a_pos, b_pos);
+	if (command == 1)
+	{
+		while (a_pos->prev && b_pos->prev)
+			rr(a, b);
+		while (a_pos->prev)
+			rb(a);
+		while (b_pos->prev)
+			ra(b);
+	}
+	else if (command == 2)
+	{
+		while (a_pos->prev)
+			rb(a);
+		while (b_pos->prev)
+		{
+			// printf("b_pos should be: %d\n", b_pos->val);
+			// t_stack *head;
+			// head = *b;
+			// while (head)
+			// {
+			// 	if (head->prev)
+			// 		printf("prev content: %d\n", head->prev->val);
+			// 	printf("content: %d\n", head->val);
+			// 	head = head->next;
+			// }
+			rra(b);
+		}
+	}
+	else if (command == 3)
+	{
+		while (a_pos->prev && b_pos->prev)
+			rrr(a, b);
+		while (a_pos->prev)
+			rrb(a);
+		while (b_pos->prev)
+			rra(b);
+	}
+	else if (command == 4)
+	{
+		while (a_pos->prev)
+			rrb(a);
+		while (b_pos->prev)
+			ra(b);
+	}
+	else if (command == -1)
+		exit(-1);
+}
+
 t_stack	*find_cheapest(t_stack **a, t_stack **b)
 {
 	t_stack	*pos;
@@ -339,7 +392,35 @@ t_stack	*find_cheapest(t_stack **a, t_stack **b)
 			return (pos);
 		pos = pos->next;
 	}
-	return (NULL);
+	return (pos);
+}
+t_stack	*find_cheapest_back(t_stack **a, t_stack **b)
+{
+	t_stack	*pos;
+	int		pos_cost;
+	int		lowest_cost;
+	int		lowest_cost_val;
+
+	pos = *b;
+	lowest_cost = -1;
+	while (pos)
+	{
+		pos_cost = get_cost(pos, directly_bigger(pos->val, a));
+		if (pos_cost < lowest_cost || lowest_cost == -1)
+		{
+			lowest_cost = pos_cost;
+			lowest_cost_val = pos->val;
+		}
+		pos = pos->next;
+	}
+	pos = *b;
+	while (pos)
+	{
+		if (pos->val == lowest_cost_val)
+			return (pos);
+		pos = pos->next;
+	}
+	return (pos);
 }
 
 int	is_sorted(t_stack *stack)
@@ -357,40 +438,27 @@ void	turk_sort(t_stack **a, t_stack **b)
 {
 	t_stack *to_push;
 	t_stack *push_to;
-	t_stack	*next_val;
 
-	pb(a, b);
-	if (ft_lstsize(*a) > 3)
+	if (ft_lstsize(*a) == 4)
 		pb(a, b);
+	else if (ft_lstsize(*a) > 4)
+	{
+		pb(a, b);
+		pb(a, b);
+	}
 	while (ft_lstsize(*a) > 3 && !is_sorted(*a))
 	{
 		to_push = find_cheapest(a, b);
 		push_to = directly_smaller(to_push->val, b);
-		// push_b_to_top(b, push_to);
-		// push_a_to_top(a, to_push);
 		push_to_top(a, b, to_push, push_to);
 		pb(a, b);
 	}
 	sort_three(a);
 	while (*b)
 	{
-		next_val = directly_bigger((*b)->val, a);
-		// printf("next val %d\n", next_val->val);
-		push_a_to_top(a, next_val);
+		to_push = directly_bigger((*b)->val, a);
+		push_a_to_top(a, to_push);
 		pa(a, b);
-		// printf("*a == %d\n", (*a)->val);
-
-		// if (get_r_cost(next_val) > get_rr_cost(next_val))
-		// 	rra(a);
-		// else
-		// 	ra(a);
-		// if (*a == next_val)
-		// 	pa(a, b);
-		// else
-		// {
-		// 	push_to_top(b, a, *b, next_val);
-		// 	pa(a, b);
-		// }
 	}
 	push_a_to_top(a, find_smallest(a));
 }

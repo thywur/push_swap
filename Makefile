@@ -6,7 +6,7 @@
 #    By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/05 17:50:42 by alermolo          #+#    #+#              #
-#    Updated: 2023/12/08 15:55:10 by alermolo         ###   ########.fr        #
+#    Updated: 2023/12/12 16:10:57 by alermolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,10 @@ SRCS = 		commands.c	\
 			sort_three.c	\
 			swap.c		\
 			turk_sort.c		\
+			free_and_exit.c	\
+			ft_split.c	\
+			ft_strlen.c	\
+			parse_args.c	\
 
 OBJS =		$(SRCS:.c=.o)
 

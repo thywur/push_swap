@@ -64,13 +64,16 @@ void	ft_lstclear(t_stack **stack)
 {
 	t_stack	*temp;
 
-	while (*stack)
+	if (stack)
 	{
-		temp = *stack;
-		*stack = ((*stack)->next);
-		free(temp);
-	}
+		while (*stack)
+		{
+			temp = *stack;
+			*stack = ((*stack)->next);
+			free(temp);
+		}
 	*stack = NULL;
+	}
 }
 
 int	ft_lstsize(t_stack *lst)
@@ -86,11 +89,11 @@ int	ft_lstsize(t_stack *lst)
 	return (size);
 }
 
-int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	res;
+	long int	i;
+	long int	sign;
+	long int	res;
 
 	i = 0;
 	sign = 1;
@@ -158,4 +161,32 @@ int	ft_isdigit(int c)
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
+}
+
+int	ft_strisdigit(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_digit_and_spc(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]) && s[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
 }

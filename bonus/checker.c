@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:03:26 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/14 15:16:01 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:47:10 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ int	ft_strcmp(const char *s1, const char *s2)
 void	check_command(t_stack **a, t_stack **b, char *line)
 {
 	if (ft_strcmp(line, "sa\n") == 0)
-		sa(a, b);
+		sa_checker(a);
 	else if (ft_strcmp(line, "sb\n") == 0)
-		sb(a, b);
+		sb_checker(b);
 	else if (ft_strcmp(line, "ss\n") == 0)
-		ss(a, b);
+		ss_checker(a, b);
 	else if (ft_strcmp(line, "pa\n") == 0)
-		pa(a, b);
+		pa_checker(a, b);
 	else if (ft_strcmp(line, "pb\n") == 0)
-		pb(a, b);
+		pb_checker(a, b);
 	else if (ft_strcmp(line, "ra\n") == 0)
-		ra(a, b);
+		ra_checker(a);
 	else if (ft_strcmp(line, "rb\n") == 0)
-		rb(a, b);
+		rb_checker(b);
 	else if (ft_strcmp(line, "rr\n") == 0)
-		rr(a, b);
+		rr_checker(a, b);
 	else if (ft_strcmp(line, "rra\n") == 0)
-		rra(a, b);
+		rra_checker(a);
 	else if (ft_strcmp(line, "rrb\n") == 0)
-		rrb(a, b);
+		rrb_checker(b);
 	else if (ft_strcmp(line, "rrr\n") == 0)
-		rrr(a, b);
+		rrr_checker(a, b);
 	else
 		free_and_exit(a, b);
 }

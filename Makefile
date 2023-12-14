@@ -6,7 +6,7 @@
 #    By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/05 17:50:42 by alermolo          #+#    #+#              #
-#    Updated: 2023/12/14 15:17:26 by alermolo         ###   ########.fr        #
+#    Updated: 2023/12/14 15:48:04 by alermolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,10 @@ BSRCS =		bonus/checker.c	\
 			srcs/rotate.c	\
 			srcs/sort_three.c	\
 			srcs/swap.c		\
+			bonus/push_bonus.c		\
+			bonus/reverse_rotate_bonus.c	\
+			bonus/rotate_bonus.c	\
+			bonus/swap_bonus.c		\
 			srcs/turk_sort.c		\
 			srcs/free_and_exit.c	\
 			srcs/ft_split.c	\

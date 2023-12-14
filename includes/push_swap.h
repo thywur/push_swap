@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:59:35 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/14 15:06:28 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:46:46 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,16 @@ char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s);
 void	*free_and_null(char *s);
+void	sa_checker(t_stack **a);
+void	sb_checker(t_stack **b);
+void	ss_checker(t_stack **a, t_stack **b);
+void	pa_checker(t_stack **a, t_stack **b);
+void	pb_checker(t_stack **a, t_stack **b);
+void	ra_checker(t_stack **a);
+void	rb_checker(t_stack **b);
+void	rr_checker(t_stack **a, t_stack **b);
+void	rra_checker(t_stack **a);
+void	rrb_checker(t_stack **b);
+void	rrr_checker(t_stack **a, t_stack **b);
 
 #endif

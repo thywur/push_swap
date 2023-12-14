@@ -6,11 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:11:57 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:12:51 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:11:10 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	get_r_cost(t_stack *pos)
 {

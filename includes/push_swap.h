@@ -6,7 +6,7 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:59:35 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 18:01:52 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:06:28 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,12 @@ int		get_rr_cost(t_stack *pos);
 int		get_cost(t_stack *a, t_stack *b);
 t_stack	*find_cheapest(t_stack **a, t_stack **b);
 t_stack	*find_cheapest_back(t_stack **a, t_stack **b);
+char	*get_next_line(int fd);
+char	*get_next_line(int fd);
+char	*ft_substr_gnl(char *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	*ft_bzero(void *s, size_t n);
+char	*ft_strdup(const char *s);
+void	*free_and_null(char *s);
 
 #endif

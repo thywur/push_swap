@@ -6,11 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:28:38 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:47:54 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:10:14 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 t_stack	*find_cheapest(t_stack **a, t_stack **b)
 {

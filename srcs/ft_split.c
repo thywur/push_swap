@@ -6,11 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:24:01 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:38:42 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:11:01 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	ft_isspace(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:03:46 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:27:08 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:10:05 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	biggest(t_stack **stack)
 {

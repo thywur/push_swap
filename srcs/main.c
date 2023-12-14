@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_a_to_top.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 17:45:11 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 18:00:18 by alermolo         ###   ########.fr       */
+/*   Created: 2023/12/02 15:34:33 by alermolo          #+#    #+#             */
+/*   Updated: 2023/12/14 15:11:13 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	push_a_to_top(t_stack **a, t_stack **b, t_stack *pos)
+int	main(int argc, char **argv)
 {
-	int	r_cost;
-	int	rr_cost;
+	t_stack	*a;
+	t_stack	*b;
 
-	r_cost = get_r_cost(pos);
-	rr_cost = get_rr_cost(pos);
-	if (r_cost < rr_cost)
-	{
-		while (r_cost)
-		{
-			ra(a, b);
-			r_cost--;
-		}
-	}
-	else
-	{
-		while (rr_cost)
-		{
-			rra(a, b);
-			rr_cost--;
-		}
-	}
+	a = NULL;
+	b = NULL;
+	if (argc < 2)
+		return (0);
+	convert_args(argc, argv, &a);
+	check_vals(&a);
+	if (!is_sorted(a) && ft_lstsize(a) == 2)
+		sa(&a, &b);
+	else if (!is_sorted(a) && ft_lstsize(a) >= 3)
+		turk_sort(&a, &b);
+	free_all_noerr(&a, &b);
+	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:50:53 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:59:49 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:11:26 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	rarb(t_stack **a, t_stack **b, t_stack *a_pos, t_stack *b_pos)
 {

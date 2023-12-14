@@ -6,11 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:20:32 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 18:02:09 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:11:43 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	turk_sort(t_stack **a, t_stack **b)
 {

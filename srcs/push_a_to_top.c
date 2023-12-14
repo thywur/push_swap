@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst2.c                                          :+:      :+:    :+:   */
+/*   push_a_to_top.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 17:37:30 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:48:05 by alermolo         ###   ########.fr       */
+/*   Created: 2023/12/12 17:45:11 by alermolo          #+#    #+#             */
+/*   Updated: 2023/12/14 15:11:23 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	ft_lstclear(t_stack **stack)
+void	push_a_to_top(t_stack **a, t_stack **b, t_stack *pos)
 {
-	t_stack	*temp;
+	int	r_cost;
+	int	rr_cost;
 
-	if (stack)
+	r_cost = get_r_cost(pos);
+	rr_cost = get_rr_cost(pos);
+	if (r_cost < rr_cost)
 	{
-		while (*stack)
+		while (r_cost)
 		{
-			temp = *stack;
-			*stack = ((*stack)->next);
-			free(temp);
+			ra(a, b);
+			r_cost--;
 		}
-		*stack = NULL;
 	}
-}
-
-int	ft_lstsize(t_stack *lst)
-{
-	int	size;
-
-	size = 0;
-	while (lst)
+	else
 	{
-		size++;
-		lst = lst->next;
+		while (rr_cost)
+		{
+			rra(a, b);
+			rr_cost--;
+		}
 	}
-	return (size);
 }

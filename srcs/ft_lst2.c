@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lst2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/02 15:34:33 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:42:44 by alermolo         ###   ########.fr       */
+/*   Created: 2023/12/12 17:37:30 by alermolo          #+#    #+#             */
+/*   Updated: 2023/12/14 15:10:37 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_lstclear(t_stack **stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*temp;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	convert_args(argc, argv, &a);
-	check_vals(&a);
-	if (!is_sorted(a))
-		turk_sort(&a, &b);
-	free_all_noerr(&a, &b);
-	return (0);
+	if (stack)
+	{
+		while (*stack)
+		{
+			temp = *stack;
+			*stack = ((*stack)->next);
+			free(temp);
+		}
+		*stack = NULL;
+	}
+}
+
+int	ft_lstsize(t_stack *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }

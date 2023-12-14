@@ -6,37 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:30:34 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 16:37:54 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:11:19 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-// int	check_args(int argc, char **argv)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	if (argc < 2)
-// 		return (0);
-// 	i = 1;
-// 	while (argv[i])
-// 	{
-// 		if (!ft_digit_and_spc(argv[i]))
-// 			return (-1);
-// 		j = i + 1;
-// 		while (argv[j])
-// 		{
-// 			if (argv[i] == argv[j])
-// 				return (-1);
-// 			j++;
-// 		}
-// 		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
-// 			return (-1);
-// 		i++;
-// 	}
-// 	return (1);
-// }
+#include "../includes/push_swap.h"
 
 void	check_vals(t_stack **a)
 {

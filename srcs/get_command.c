@@ -6,11 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:43:54 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 17:48:32 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:11:07 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	get_command(t_stack *a, t_stack *b)
 {

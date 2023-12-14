@@ -6,11 +6,11 @@
 /*   By: alermolo <alermolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:43:23 by alermolo          #+#    #+#             */
-/*   Updated: 2023/12/12 18:01:43 by alermolo         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:11:37 by alermolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sort_three(t_stack **a, t_stack **b)
 {
